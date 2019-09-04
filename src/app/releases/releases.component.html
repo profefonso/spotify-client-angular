@@ -1,0 +1,9 @@
+<div *ngFor="let album of albums.items">
+    <h2>{{album.name}}</h2>
+  
+      <p>
+        <img src="{{album.images[1].url}}" alt="{{album.name}}">
+        
+      </p>
+      <a href="{{album.href}}">view full album</a>
+  </div>
