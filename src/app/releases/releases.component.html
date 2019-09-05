@@ -5,5 +5,15 @@
         <img src="{{album.images[1].url}}" alt="{{album.name}}">
         
       </p>
-      <a href="{{album.href}}">view full album</a>
+      <div *ngFor="let artist of album.artists">
+        <a [routerLink]="['/artista',artist.id]">{{artist.name}}</a>
+    </div>
   </div>
+
+  <ul class="list-group">
+    <li class="list-group-item">Prueba 1</li>
+    <li class="list-group-item">Prueba 2</li>
+    <li class="list-group-item">Prueba 3</li>
+    <li class="list-group-item">Prueba 4</li>
+    <li class="list-group-item">Prueba 5</li>
+  </ul>

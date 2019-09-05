@@ -10,10 +10,7 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAlbumsNewReleases(token, offset, limit){
-    let urlApi = "https://api.spotify.com/v1/browse/new-releases";
-    let url = urlApi.concat()
-    
+  getAlbumsNewReleases(token, offset, limit){    
     const headers = new HttpHeaders()
             .set("Authorization", "Bearer "+token);
 
@@ -25,6 +22,37 @@ export class ApiService {
           limit: limit,
           offset: offset
         },
+        headers:headers
+      },
+      
+      );
+  }
+
+  getArtistInfo(token, artistId){
+    let urlApi = 'https://api.spotify.com/v1/artists/';
+    let url = urlApi.concat(artistId);
+    const headers = new HttpHeaders()
+            .set("Authorization", "Bearer "+token);
+
+    return this.httpClient.get(
+      url,
+      {
+        headers:headers
+      },
+      
+      );
+  }
+
+
+  getArtistTopTracks(token, artistId){
+    let urlApi = 'https://api.spotify.com/v1/artists/';
+    let url = urlApi.concat(artistId, "");
+    const headers = new HttpHeaders()
+            .set("Authorization", "Bearer "+token);
+
+    return this.httpClient.get(
+      url,
+      {
         headers:headers
       },
       
