@@ -46,7 +46,7 @@ export class ApiService {
 
   getArtistTopTracks(token, artistId){
     let urlApi = 'https://api.spotify.com/v1/artists/';
-    let url = urlApi.concat(artistId, "");
+    let url = urlApi.concat(artistId, "/top-tracks?country=CO");
     const headers = new HttpHeaders()
             .set("Authorization", "Bearer "+token);
 

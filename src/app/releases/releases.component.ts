@@ -16,7 +16,7 @@ export class ReleasesComponent implements OnInit {
   ngOnInit() {
     let token = localStorage.getItem("TOKEN");
     if (token){
-      this.apiService.getAlbumsNewReleases(token, 0, 10).subscribe((data)=>{
+      this.apiService.getAlbumsNewReleases(token, 0, 15).subscribe((data)=>{
         
         this.albums = data['albums'];
         console.log(this.albums);

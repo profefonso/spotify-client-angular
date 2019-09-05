@@ -11,6 +11,7 @@ import { ApiService } from '../api.service'
 export class ArtistsComponent implements OnInit {
 
   artist;
+  topTracks;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,9 +26,13 @@ export class ArtistsComponent implements OnInit {
         token, 
         this.route.snapshot.params.id
         ).subscribe((data)=>{
-        
         this.artist = data;
-        console.log(this.artist);
+      });
+
+      this.apiService.getArtistTopTracks(token, this.route.snapshot.params.id
+        ).subscribe((data)=>{
+        
+        this.topTracks = data['tracks'];
       });
     }
   }
